@@ -1,0 +1,18 @@
+<h1>Renter's booking requests</h1>
+
+<% @bookings.each do |booking| %>
+  <% @cat = Cat.find(booking.cat_id) %>
+  <p>----------------------------------------------------------------</p>
+  <% if @cat.user.id == booking.user.id %>
+    <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
+    <p><%="Cat name: #{@cat.name} "%></p>
+    <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
+    <button class="btn btn-primary">Approve</button>
+  <% else %>
+    <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
+    <p><%="Cat name: #{@cat.name} "%></p>
+    <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
+    <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
+    <p>Approval status: .....TODO</p>
+  <% end %>
+<% end %>
