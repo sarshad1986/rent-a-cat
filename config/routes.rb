@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get '/cats/my_cats', to: 'cats#users_cats'
   resources :cats
 end

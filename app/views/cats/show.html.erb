@@ -1,0 +1,10 @@
+
+<div class="container">
+  <h2><%= @cat.name %></h2>
+  <p><%= @cat.breed %></p>
+  <p><%= @cat.age %></p>
+  <p><%= @cat.description %></p>
+</div>
+
+<%= link_to("Edit", edit_cat_path(@cat)) %>
+<%= link_to "Delete", cat_path(@cat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
