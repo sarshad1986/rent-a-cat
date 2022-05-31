@@ -4,6 +4,26 @@
   data: {turbo: false}) do |f| %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "First name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Last name" }%>
+    <%= f.input :address,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Address" }%>
+    <%= f.input :post_code,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Post Code" }%>
+    <%= f.input :phone_number,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Phone number" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
