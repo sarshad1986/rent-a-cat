@@ -1,13 +1,13 @@
-.banner {
+.reg_banner {
   background-size: cover;
   background-position: center;
-  padding: 150px;
-  background-image: url("images/fam_banner.jpg");
+  padding: 150px 0;
+  margin-top: 36px;
   border-radius: 16px;
-  height: 500px;
+  height: 400px;
 }
 
-.banner h1 {
+.reg_banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -15,7 +15,7 @@
   font-weight: bold;
 }
 
-.banner p {
+.reg_banner p {
   font-size: 20px;
   color: white;
   opacity: .7;
