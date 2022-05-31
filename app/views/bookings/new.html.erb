@@ -1,4 +1,4 @@
-<h1>Create your booking</h1>
+<h1>Create your booking with the adorable <%= @cat.name %></h1>
 
 <%= simple_form_for [@cat, @booking] do |f| %>
   <%= f.input :date_from, as: :date%>

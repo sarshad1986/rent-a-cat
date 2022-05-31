@@ -17,12 +17,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_125315) do
   create_table "bookings", force: :cascade do |t|
     t.date "date_from"
     t.date "date_to"
-    t.bigint "users_id", null: false
-    t.bigint "cats_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "cat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cats_id"], name: "index_bookings_on_cats_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["cat_id"], name: "index_bookings_on_cat_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "cats", force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_125315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "cats", column: "cats_id"
-  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "bookings", "cats"
+  add_foreign_key "bookings", "users"
   add_foreign_key "cats", "users"
 end

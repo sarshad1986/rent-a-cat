@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/my_bookings', to: 'bookings#my_bookings'
+  get '/renter_bookings', to: 'bookings#renter_bookings'
+  get '/owner_bookings', to: 'bookings#owner_bookings'
   resources :cats do
     resources :bookings, only: %i[new create]
   end
