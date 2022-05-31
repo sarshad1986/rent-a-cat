@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-# puts 'Cleaning Database...'
-# Cat.destroy_all
+puts 'Cleaning Database...'
+Cat.destroy_all
 
 puts 'Creating cats...'
 10.times do

@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :edit]
+  before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def index
     @cats = Cat.all
@@ -11,28 +11,33 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
-    if @cat.save
+    @cat.user = current_user
+    if @cat.save!
       redirect_to cat_path(@cat)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # def show
-  #   @cat = Cat.find(params[:id])
-  # end
+  def show
+  end
 
-  # def edit
-  #   @cat = Cat.find(params[:id])
-  # end
+  def edit
+  end
 
-  # def update
-  #   @cat = Cat.find(params[:id])
-  # end
+  def update
+    @cat.update(cat_params)
+    redirect_to cat_path(@cat)
+  end
 
-  # def destroy
+  def users_cats
+    @cats = Cat.where(user: current_user)
+  end
 
-  # end
+  def destroy
+    @cat.destroy
+    redirect_to cats_my_cats_path, status: :see_other
+  end
 
   private
 
@@ -43,5 +48,4 @@ class CatsController < ApplicationController
   def cat_params
     params.require(:cat).permit!
   end
-
 end
