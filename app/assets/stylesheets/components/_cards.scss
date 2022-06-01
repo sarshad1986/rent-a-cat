@@ -2,17 +2,15 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding-top: 50px;
-  height: 200px;
-  width: 350px;
+  height: 100px;
+  width: 320px;
   border-radius: 16px;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
-  margin-left: 95px;
   margin-top: 36px;
 }
 
