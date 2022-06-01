@@ -15,3 +15,16 @@
   font-size: 40px;
   color: #F16821 !important;
 }
+
+.container-fluid {
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
+.nav-item active {
+  color: #1A3263;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  margin-right: -6px;
+}
