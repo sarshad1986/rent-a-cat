@@ -7,12 +7,15 @@
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-    <button class="btn btn-primary">Approve</button>
+    <%# <button class="btn btn-primary">Approve</button> %>
+    <p><%= "Rental Status: #{booking.rent_status}"%></p>
+    <%= link_to "Approve", approve_path(booking, status: 'accepted') %>
+    <%# <button class="btn btn-danger">Reject</button> %>
   <% else %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-    <p>Approval status: .....TODO</p>
+    <p><%= "Rental Status: #{booking.rent_status}"%></p>
   <% end %>
 <% end %>
