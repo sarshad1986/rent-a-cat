@@ -1,10 +1,15 @@
 
 <div class="container">
-  <h2><%= @cat.name %></h2>
-  <p><%= @cat.breed %></p>
-  <p><%= @cat.age %></p>
-  <p><%= @cat.description %></p>
+  <h2>Name: <%= @cat.name %></h2>
+  <p>Breed: <%= @cat.breed %></p>
+  <p>Age: <%= @cat.age %></p>
+  <p>Description: <%= @cat.description %></p>
+
+  <% @cat.photos.each do |photo|  %>
+  <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
+  <% end %>
 </div>
+
 
 <%= link_to("Edit", edit_cat_path(@cat)) %>
 <%= link_to "Delete", cat_path(@cat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
