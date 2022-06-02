@@ -1,9 +1,17 @@
 <div class="container">
-  <h1>All cats on the site</h1>
+  <h1 class="index-heading">Browse cats</h1>
+  <div>
+    <%= form_tag cats_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search breed"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <%# <% @cats.each do |cat| %>
-  <%# <li><%= link_to cat.name, cat_path(cat) %></li>
+    <%# <li><%= link_to cat.name, cat_path(cat) %>
   <%# <% end %>
-  <%= render 'shared/cards' %>
-  <li><%= link_to cat.name, cat_path(cat) %></li>
-  <% end %>
+  <%= render 'shared/cards_index' %>
 </div>

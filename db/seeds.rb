@@ -6,12 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require "open-uri"
+require "json"
+require 'cat_api'
 
-puts 'Cleaning Database...'
-Cat.destroy_all
+# puts 'Cleaning Database...'
+# Booking.destroy_all
+# Cat.destroy_all
 
 puts 'Creating user and cats...'
-10.times do
+5.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: 'superuser',
@@ -22,8 +26,10 @@ puts 'Creating user and cats...'
     phone_number: '1234555'
   )
   puts "Created #{user.first_name}"
-  # count = 1
   5.times do
+    client = CatAPI.new
+    images = client.get_images
+    image = images[0].url
     cat = Cat.create(
       name: Faker::Creature::Cat.name,
       breed: Faker::Creature::Cat.breed,
@@ -32,8 +38,8 @@ puts 'Creating user and cats...'
       user: user,
       user_id: user.id
     )
-    # count += 1
-    # puts "Created #{cat.name}, #{cat.user_id}"
+    file = URI.open(image)
+    cat.photos.attach(io: file, filename: "cat.jpg", content_type: "image/png")
   end
 end
 puts "Finished creating user and cats"
