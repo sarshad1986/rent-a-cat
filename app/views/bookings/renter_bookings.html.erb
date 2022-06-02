@@ -1,21 +1,26 @@
+<div class="container">
 <h1>Your booking control page</h1>
 
 <% @bookings.each do |booking| %>
   <% @cat = Cat.find(booking.cat_id) %>
   <p>----------------------------------------------------------------</p>
-  <% if @cat.user.id == booking.user.id %>
+  <% if current_user.id == booking.cat.user.id %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
     <%# <button class="btn btn-primary">Approve</button> %>
     <p><%= "Rental Status: #{booking.rent_status}"%></p>
     <% if booking.rent_status == "accepted" %>
-      <p><strong>You already approved this booking</strong></p>
+      <p><strong>You approved this booking</strong></p>
+      <%= link_to "Reject this booking", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger"%>
+    <% elsif booking.rent_status == "rejected" %>
+      <p><strong>You rejected this booking</strong></p>
+      <%= link_to "Approve this booking", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
       <% else %>
-        <button class="btn btn-success text-decoration-none"><%= link_to "Approve", approve_path(booking, status: 'accepted') %></button>
+        <%= link_to "Approve", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
+        <%= link_to "Reject", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger" %>
     <% end %>
 
-    <%# <button class="btn btn-danger">Reject</button> %>
   <% else %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
@@ -24,3 +29,4 @@
     <p><%= "Rental Status: #{booking.rent_status}"%></p>
   <% end %>
 <% end %>
+</div>
