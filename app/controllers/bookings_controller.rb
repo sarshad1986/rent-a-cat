@@ -22,9 +22,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def owner_bookings
-    @owner_bookings = Booking.all
-  end
 
   def booking_params
     params.require(:booking).permit(:date_to, :date_from, :cat_id, :status)
