@@ -2,7 +2,11 @@ class CatsController < ApplicationController
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cats = Cat.all
+    if params[:query].present?
+      @cats = Cat.where("breed ILIKE ?", "%#{params[:query]}%")
+    else
+      @cats = Cat.all
+    end
   end
 
   def new
