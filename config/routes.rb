@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get '/accept_booking', to: 'bookings#approve_rent', as: :approve
+  get '/reply_booking', to: 'bookings#reply_rent'
   get '/renter_bookings', to: 'bookings#renter_bookings'
-  # put '/renter_bookings/', to: 'bookings#approve_rent'
 
   resources :cats do
     resources :bookings, only: %i[new create]
