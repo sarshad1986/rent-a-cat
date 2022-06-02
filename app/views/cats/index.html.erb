@@ -2,6 +2,8 @@
   <h1>All cats on the site</h1>
 
   <% @cats.each do |cat| %>
-  <li><%= cat.name %></li>
+    <%= link_to cat_path(cat) do %>
+      <li><%= cat.name %></li>
+    <% end %>
   <% end %>
 </div>
