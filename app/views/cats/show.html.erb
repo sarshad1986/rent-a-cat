@@ -11,7 +11,23 @@
 </div>
 
 <div class="container">
+<<<<<<< Updated upstream
   <button class="btn btn-flat"><%= link_to("Book", new_cat_booking_path(@cat))%></button>
   <button class="btn btn-flat"><%= link_to("Edit", edit_cat_path(@cat)) %></button>
   <button class="btn btn-flat"><%= link_to "Delete", cat_path(@cat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+=======
+  <%# <%= link_to "Book", new_cat_booking_path(@cat), class:"text-decoration-none btn-flat" %>
+  <%= link_to "Edit", edit_cat_path(@cat), class:"text-decoration-none btn-flat" %>
+  <%= link_to "Delete", cat_path(@cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+>>>>>>> Stashed changes
 </div>
+
+
+<div class="container">
+  <h1>Create your booking with the adorable <%= @cat.name %></h1>
+
+<%= simple_form_for [@cat, @booking] do |f| %>
+  <%= f.input :date_from, as: :date, html5: true%>
+  <%= f.input :date_to, as: :date, html5: true %>
+  <%= f.button :submit, class: "btn btn-flat" %>
+<% end %>
