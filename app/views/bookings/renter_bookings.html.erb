@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Here are your fluff ball bookings</h1>
-
+  <h1 class="booking-h1">Here are your fluff ball bookings</h1>
+<br> <br>
   <% @bookings.each do |booking| %>
     <div class="card-product mb-4">
-      <%# <%= link_to cat_path(booking) %>
+      <%# <%= link_to cat_path(@cat) %>
       <% @cat = Cat.find(booking.cat_id) %>
       <%= image_tag("card_cat.jpg") %>
       <% if current_user.id == booking.cat.user.id %>
