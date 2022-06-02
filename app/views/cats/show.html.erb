@@ -1,17 +1,39 @@
-
 <div class="container">
+  <% if @cat.photos.size == 1 %>
+    <%=cl_image_tag @cat.photos.first.key, class:"d-block w-100 h-50" %>
+  <% else %>
+    <div class="container-carousel">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% @cat.photos.each_with_index do |photo, index| %>
+            <div data-bs-interval="2000" class="carousel-item <%= index == 0 ? "active" : '' %> ">
+              <%= cl_image_tag photo.key, class:"d-block w-100" %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="container mt-3">
   <h2>This is <%= @cat.name %></h2>
   <p>Breed: <%= @cat.breed %></p>
   <p>Age: <%= @cat.age %></p>
   <p>Description: <%= @cat.description %></p>
-
-  <% @cat.photos.each do |photo|  %>
-  <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
-  <% end %>
 </div>
 
 <div class="container">
-  <button class="btn btn-flat"><%= link_to("Book", new_cat_booking_path(@cat))%></button>
-  <button class="btn btn-flat"><%= link_to("Edit", edit_cat_path(@cat)) %></button>
-  <button class="btn btn-flat"><%= link_to "Delete", cat_path(@cat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+  <%= link_to "Book", new_cat_booking_path(@cat), class:"text-decoration-none btn-flat" %>
+  <%= link_to "Edit", edit_cat_path(@cat), class:"text-decoration-none btn-flat" %>
+  <%= link_to "Delete", cat_path(@cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </div>
