@@ -1,0 +1,16 @@
+<div class="cards">
+  <% @cats.each do |cat| %>
+    <%= link_to cat_path(cat) do %>
+        <div class="card-cat">
+          <%= image_tag("card_cat.jpg") %>
+          <div class="card-cat-infos">
+            <div>
+              <h2><%= cat.name %></h2>
+              <p><%= cat.description %></p>
+            </div>
+              <%# <%= image_tag("king.jpeg") class="card-cat-user avatar-bordered" %>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>
