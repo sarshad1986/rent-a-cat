@@ -10,10 +10,14 @@
     <%# <button class="btn btn-primary">Approve</button> %>
     <p><%= "Rental Status: #{booking.rent_status}"%></p>
     <% if booking.rent_status == "accepted" %>
-      <p><strong>You already approved this booking</strong></p>
+      <p><strong>You approved this booking</strong></p>
+      <%= link_to "Reject this booking", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger"%>
+    <% elsif booking.rent_status == "rejected" %>
+      <p><strong>You rejected this booking</strong></p>
+      <%= link_to "Approve this booking", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
       <% else %>
-        <%= link_to "Approve", reply_booking_path(booking, status: 'accepted') %>
-        <%= link_to "Reject", reply_booking_path(booking, status: 'rejected') %>
+        <%= link_to "Approve", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
+        <%= link_to "Reject", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger" %>
     <% end %>
 
     <%# <button class="btn btn-danger">Reject</button> %>
