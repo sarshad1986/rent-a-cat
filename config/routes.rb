@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :cats do
     resources :bookings, only: %i[new create]
   end
-  get '/cats/my_cats', to: 'cats#users_cats'
+  get '/my_cats', to: 'cats#users_cats'
   resources :cats
 end
