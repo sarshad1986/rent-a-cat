@@ -2,19 +2,16 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding-top: 50px;
-  width: 320px;
+  width: 300px;
   border-radius: 16px;
 }
-
-// .cards-container {
-  // justify-content: center;
-// }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
   margin-top: 36px;
+  column-fill: auto;
 }
 
 .card-cat > img {
@@ -42,6 +39,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  text-decoration: none;
 }
 
 .card-cat-infos .card-cat-user {

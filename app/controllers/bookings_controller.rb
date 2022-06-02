@@ -22,20 +22,15 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def owner_bookings
-    @owner_bookings = Booking.all
-  end
-
   def booking_params
-    params.require(:booking).permit(:date_to, :date_from, :cat_id, :status)
+    params.require(:booking).permit(:date_to, :date_from, :cat_id, :status, :format)
   end
 
-  def approve_rent
+  def reply_rent
     @booking = Booking.find(params[:format])
-    # @cat = Cat.find(params[:format])
-    @booking.rent_status = 'accepted'
+    @booking.rent_status = params[:status]
     @booking.save
-    redirect_to renter_bookings_path, notice: "Rent status change to Approved"
+    redirect_to renter_bookings_path, notice: "Rent status change to #{params[:status]}"
   end
 
   # def reject_rent
