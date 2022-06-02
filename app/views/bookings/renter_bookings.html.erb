@@ -3,7 +3,7 @@
 <% @bookings.each do |booking| %>
   <% @cat = Cat.find(booking.cat_id) %>
   <p>----------------------------------------------------------------</p>
-  <% if @cat.user.id == booking.user.id %>
+  <% if @cat.user.id == booking.cat.user.id %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
