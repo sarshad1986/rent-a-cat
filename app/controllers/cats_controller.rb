@@ -24,6 +24,8 @@ class CatsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @cat = Cat.find(params[:id])
   end
 
   def edit
@@ -52,4 +54,5 @@ class CatsController < ApplicationController
   def cat_params
     params.require(:cat).permit(:name, :breed, :age, :description, photos: [])
   end
+
 end
