@@ -1,23 +1,4 @@
-<<<<<<< HEAD
 <div class="container">
-  <h1>Renter's booking requests</h1>
-
-  <% @bookings.each do |booking| %>
-    <% @cat = Cat.find(booking.cat_id) %>
-    <p>----------------------------------------------------------------</p>
-    <% if @cat.user.id == booking.user.id %>
-      <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
-      <p><%="Cat name: #{@cat.name} "%></p>
-      <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-      <button class="btn btn-primary">Approve</button>
-    <% else %>
-      <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
-      <p><%="Cat name: #{@cat.name} "%></p>
-      <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
-      <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-      <p>Approval status: .....TODO</p>
-    <% end %>
-=======
 <h1>Your booking control page</h1>
 
 <% @bookings.each do |booking| %>
@@ -40,13 +21,12 @@
         <%= link_to "Reject", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger" %>
     <% end %>
 
-    <%# <button class="btn btn-danger">Reject</button> %>
   <% else %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-    <p><%= "Rental Status: #{booking.rent_status}"%></p>
->>>>>>> 6a71f2c0d17afa86de3ca1ecef2aa22e3f9fbf67
+    <p><%= "Rental Status: #{booking.rent_status}"%></p>67
   <% end %>
+<% end %>
 </div>
