@@ -1,7 +1,12 @@
 <div class="container">
-  <h1>Cats i've listed</h1>
-
+  <h1>My Cat Listings</h1>
   <% @cats.each do |cat| %>
-    <li><%= link_to(cat.name, cat_path(cat))%></li>
+    <div class="card-product mt-5">
+      <%= cl_image_tag cat.photos.first.key %>
+        <div>
+          <h2><%= cat.name %></h2>
+          <p><%= cat.description %></p>
+        </div>
+    </div>
   <% end %>
 </div>
