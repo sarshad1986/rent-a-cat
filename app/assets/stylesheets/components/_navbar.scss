@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #F4F4F4;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,8 +27,21 @@
 
 .navbar-light .navbar-nav .nav-link {
   margin-right: -6px;
+  font-size: 20px;
 }
 
-.nav-link {
-  font-size: 18px;
+.site-name {
+  color: #F16821;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-left: 8px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo:hover {
+  color: #d35a1d;
 }
