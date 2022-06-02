@@ -1,32 +1,35 @@
 <div class="container">
-<h1>Your booking control page</h1>
+  <h1>Here are your fluff ball bookings</h1>
 
-<% @bookings.each do |booking| %>
-  <% @cat = Cat.find(booking.cat_id) %>
-  <p>----------------------------------------------------------------</p>
-  <% if current_user.id == booking.cat.user.id %>
-    <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
-    <p><%="Cat name: #{@cat.name} "%></p>
-    <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-    <%# <button class="btn btn-primary">Approve</button> %>
-    <p><%= "Rental Status: #{booking.rent_status}"%></p>
-    <% if booking.rent_status == "accepted" %>
-      <p><strong>You approved this booking</strong></p>
-      <%= link_to "Reject this booking", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger"%>
-    <% elsif booking.rent_status == "rejected" %>
-      <p><strong>You rejected this booking</strong></p>
-      <%= link_to "Approve this booking", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
+  <% @bookings.each do |booking| %>
+    <div class="card-product mb-4">
+      <%# <%= link_to cat_path(booking) %>
+      <% @cat = Cat.find(booking.cat_id) %>
+      <%= image_tag("card_cat.jpg") %>
+      <% if current_user.id == booking.cat.user.id %>
+        <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
+        <p><%="Cat name: #{@cat.name} "%></p>
+        <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
+        <%# <button class="btn btn-primary">Approve</button> %>
+        <p><%= "Rental Status: #{booking.rent_status}"%></p>
+      <% if booking.rent_status == "accepted" %>
+        <p><strong>You approved this booking</strong></p>
+        <%= link_to "Reject this booking", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger"%>
+      <% elsif booking.rent_status == "rejected" %>
+        <p><strong>You rejected this booking</strong></p>
+        <%= link_to "Approve this booking", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Approve", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
+          <%= link_to "Reject", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger" %>
+      <% end %>
+
       <% else %>
-        <%= link_to "Approve", reply_booking_path(booking, status: 'accepted'), class: "btn btn-primary" %>
-        <%= link_to "Reject", reply_booking_path(booking, status: 'rejected'), class: "btn btn-danger" %>
-    <% end %>
-
-  <% else %>
-    <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
-    <p><%="Cat name: #{@cat.name} "%></p>
-    <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
-    <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-    <p><%= "Rental Status: #{booking.rent_status}"%></p>
+        <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
+        <p><%="Cat name: #{@cat.name} "%></p>
+        <p><%="Cat owner: #{@cat.user.first_name} #{@cat.user.last_name} "%></p>
+        <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
+        <p><%= "Rental Status: #{booking.rent_status}"%></p>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 </div>
