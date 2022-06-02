@@ -3,7 +3,7 @@
 <% @bookings.each do |booking| %>
   <% @cat = Cat.find(booking.cat_id) %>
   <p>----------------------------------------------------------------</p>
-  <% if @cat.user.id == booking.cat.user.id %>
+  <% if current_user.id == booking.cat.user.id %>
     <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
     <p><%="Cat name: #{@cat.name} "%></p>
     <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
@@ -13,6 +13,7 @@
       <p><strong>You already approved this booking</strong></p>
       <% else %>
         <button class="btn btn-success text-decoration-none"><%= link_to "Approve", approve_path(booking, status: 'accepted') %></button>
+        <button class="btn btn-success text-decoration-none"><%= link_to "Reject", approve_path(booking, status: 'rejected') %></button>
     <% end %>
 
     <%# <button class="btn btn-danger">Reject</button> %>
