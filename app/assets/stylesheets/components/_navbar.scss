@@ -1,24 +1,10 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: #F4F4F4;
-}
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-/*.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}*/
-
 .red {
   font-size: 40px;
   color: #F16821 !important;
-}
-
-.container-fluid {
-  margin-right: 32px;
-  margin-left: 32px;
 }
 
 .nav-item active {
@@ -26,7 +12,6 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  margin-right: -6px;
   font-size: 20px;
 }
 
