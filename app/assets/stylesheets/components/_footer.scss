@@ -14,12 +14,12 @@
   color: rgba(0,0,0,0.3);
   width: 100%;
   bottom: 0;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .footer-links {
   display: flex;
   align-items: center;
-  margin-left: 6px;
+  margin-left: 75px;
 }
 .footer-links a {
   color: #F16622;
@@ -32,4 +32,8 @@
 }
 .footer .fa-heart {
   color: #F16622;
+}
+
+.footer-copyright {
+  margin-right: 87px;
 }
