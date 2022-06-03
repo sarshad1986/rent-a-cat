@@ -1,4 +1,4 @@
-<%# <p style="background-image: url('<%= asset_path("Cat_background.png")') %>
+<%# <p style="background-image: url('<%= asset_path("Cat_background.png")')> %>
 <%# <div class="paw-background"> %>
   <div class="container paw-background">
     <div class="row justify-content-center">
@@ -18,7 +18,7 @@
               <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, "Log in", class: "btn-flat text-decoration-none" %>
+              <%= f.button :submit, "Log in", class: "btn btn-info" %>
             </div>
             <br>
           <% end %>
@@ -29,6 +29,4 @@
     <div class="space"></div>
   </div>
   <br>
-  <br>
-  <br>
-<%# </div> %>
+</div>
