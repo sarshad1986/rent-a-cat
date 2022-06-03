@@ -17,10 +17,11 @@
   <body>
     <div class="page-container">
       <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <br>
+      <div class="content-container"><%= yield %></div>
+      <%# <div class="space"></div> %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <div class="content-container"><%= yield %></div>
-      <div class="space"></div>
       <div class="footer-container"><%= render "shared/footer" %></div>
     </div>
   </body>
