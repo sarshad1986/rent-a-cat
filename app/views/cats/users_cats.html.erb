@@ -1,7 +1,7 @@
-
 <div class="container">
   <h1>My Cat Listings</h1>
   <% @cats.each do |cat| %>
+  <%= link_to cat_path(cat), class: "text-decoration-none" do %>
     <div class="card-product mt-5">
       <%= cl_image_tag cat.photos.first.key %>
         <div>
@@ -9,5 +9,6 @@
           <p><%= cat.description %></p>
         </div>
     </div>
+    <% end %>
   <% end %>
 </div>
