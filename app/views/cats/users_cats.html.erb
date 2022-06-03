@@ -8,6 +8,11 @@
           <h2><%= cat.name %></h2>
           <p><%= cat.description %></p>
         </div>
+    <div class="container">
+      <%= link_to "Book", new_cat_booking_path(cat), class:"text-decoration-none btn-flat" %>
+      <%= link_to "Edit", edit_cat_path(cat), class:"text-decoration-none btn-flat" %>
+      <%= link_to "Delete", cat_path(cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+     </div>
     </div>
     <% end %>
   <% end %>

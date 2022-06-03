@@ -42,7 +42,7 @@ class CatsController < ApplicationController
 
   def destroy
     @cat.destroy
-    redirect_to cats_my_cats_path, status: :see_other
+    redirect_to my_cats_path, status: :see_other
   end
 
   private
