@@ -33,13 +33,6 @@
   </div>
   </div>
 
-<div class="container mt-3">
-  <h2>This is <%= @cat.name %></h2>
-  <p>Breed: <%= @cat.breed %></p>
-  <p>Age: <%= @cat.age %></p>
-  <p>Description: <%= @cat.description %></p>
-</div>
-
   <div class="container booking-calendar">
     <h1>Create your booking with the adorable <%= @cat.name %></h1>
       <%= simple_form_for [@cat, @booking] do |f| %>
