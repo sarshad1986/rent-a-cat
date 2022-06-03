@@ -31,19 +31,19 @@
   <p>Age: <%= @cat.age %></p>
   <p>Description: <%= @cat.description %></p>
 </div>
-<br>
+
 <div class="container">
   <%= link_to "Book", new_cat_booking_path(@cat), class:"text-decoration-none btn-flat" %>
   <%= link_to "Edit", edit_cat_path(@cat), class:"text-decoration-none btn-flat" %>
   <%= link_to "Delete", cat_path(@cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </div>
-<br>
+
 
 <div class="container">
   <h1>Create your booking with the adorable <%= @cat.name %></h1>
     <%= simple_form_for [@cat, @booking] do |f| %>
-      <%= f.input :date_from, as: :date, html5: true %>
+      <%= f.input :date_from, as: :date, html5: true%>
       <%= f.input :date_to, as: :date, html5: true %>
-      <%= f.button :submit, class:"text-decoration-none btn-flat" %>
+      <%= f.button :submit, class: "btn btn-flat" %>
     <% end %>
 </div>
