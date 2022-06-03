@@ -1,18 +1,18 @@
 <div class="container">
   <h1>My Cat Listings</h1>
   <% @cats.each do |cat| %>
-  <%= link_to cat_path(cat), class: "text-decoration-none" do %>
-    <div class="card-product mt-5">
-      <%= cl_image_tag cat.photos.first.key %>
-        <div>
+    <%= link_to cat_path(cat), class: "text-decoration-none" do %>
+      <div class="card-product mt-5">
+        <div class="desc-container">
+          <%= cl_image_tag cat.photos.first.key %>
+          <div class="container mt-5">
           <h2><%= cat.name %></h2>
           <p><%= cat.description %></p>
+          <%= link_to "Edit", edit_cat_path(cat), class:"text-decoration-none btn-flat" %>
+          <%= link_to "Delete", cat_path(cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
         </div>
-    <div class="container">
-      <%= link_to "Edit", edit_cat_path(cat), class:"text-decoration-none btn-flat" %>
-      <%= link_to "Delete", cat_path(cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-     </div>
-    </div>
+      </div>
     <% end %>
   <% end %>
 </div>

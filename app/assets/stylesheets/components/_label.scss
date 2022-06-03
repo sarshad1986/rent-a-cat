@@ -5,7 +5,9 @@
   margin-right: 200px;
   border-radius: 16px;
   display: flex;
+  justify-content: center;
 }
+
 
 .card-product img {
   height: 300px;
@@ -19,6 +21,17 @@
   display: flex;
 }
 
+
 .cat-product.bg {
   background-color: white;
 }
+.desc-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.desc-container h2 {
+  justify-content: center;
+ }
+

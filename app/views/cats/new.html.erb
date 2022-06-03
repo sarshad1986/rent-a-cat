@@ -1,12 +1,16 @@
-<div class="container">
-<br>
-  <h1>Add your cat</h1>
+<div class="row justify-content-center">
+  <div class="col-sm-6 mx-auto">
 
-<%= simple_form_for @cat do |f| %>
-  <%= f.input :name %>
-  <%= f.input :breed %>
-  <%= f.input :age %>
-  <%= f.input :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, class: "btn btn-flat" %>
-<% end %>
+    <div class="container new-cat">
+      <h1 colour>Add your cat</h1>
+
+    <%= simple_form_for @cat do |f| %>
+      <%= f.input :name %>
+      <%= f.input :breed %>
+      <%= f.input :age %>
+      <%= f.input :description %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>
