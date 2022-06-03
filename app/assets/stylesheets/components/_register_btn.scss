@@ -39,3 +39,20 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.orange-button {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #F16722;
+  transition: background 0.3s ease;
+}
+
+.btn-info {
+  color: white !important;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #F16722 !important;
+  transition: background 0.3s ease;
+  border: none !important;
+}

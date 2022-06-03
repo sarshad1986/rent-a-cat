@@ -1,49 +1,44 @@
-<div class="container">
-  <div class="container-carousel">
-    <% if @cat.photos.size == 1 %>
-      <%=cl_image_tag @cat.photos.first.key, class:"d-block w-100" %>
-    <% else %>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% @cat.photos.each_with_index do |photo, index| %>
-            <div data-bs-interval="2000" class="carousel-item <%= index == 0 ? "active" : '' %> ">
-              <%= cl_image_tag photo.key, class:"d-block w-100" %>
-            </div>
-          <% end %>
+<div class="sessions d-flex">
+  <div class="container">
+    <div class="container-carousel">
+      <% if @cat.photos.size == 1 %>
+        <%=cl_image_tag @cat.photos.first.key, class:"d-block w-100 image-height" %>
+      <% else %>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @cat.photos.each_with_index do |photo, index| %>
+              <div data-bs-interval="2000" class="carousel-item <%= index == 0 ? "active" : '' %> ">
+                <%= cl_image_tag photo.key, class:"d-block w-100 image-height" %>
+          </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-
+    </div>
+      <% end %>
+      <div class="container mt-3 text-center cat-data-card">
+        <h2>This is <%= @cat.name %></h2>
+        <p><strong>Breed:</strong> <%= @cat.breed %></p>
+        <p><strong>Age: </strong> <%= @cat.age %></p>
+        <p><strong>Description: </strong> <%= @cat.description %></p>
+         <p><strong>Cat owner: </strong><%= "#{@cat.user.first_name} #{@cat.user.last_name}"  %></p>
       </div>
   </div>
-  <% end %>
-</div>
+  </div>
 
-<div class="container mt-3">
-  <h2>This is <%= @cat.name %></h2>
-  <p>Breed: <%= @cat.breed %></p>
-  <p>Age: <%= @cat.age %></p>
-  <p>Description: <%= @cat.description %></p>
-</div>
-<br>
-<div class="container">
-  <%= link_to "Book", new_cat_booking_path(@cat), class:"text-decoration-none btn-flat" %>
-  <%= link_to "Edit", edit_cat_path(@cat), class:"text-decoration-none btn-flat" %>
-  <%= link_to "Delete", cat_path(@cat), class:"text-decoration-none btn-flat", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-</div>
-<br>
-
-<div class="container">
-  <h1>Create your booking with the adorable <%= @cat.name %></h1>
-    <%= simple_form_for [@cat, @booking] do |f| %>
-      <%= f.input :date_from, as: :date, html5: true %>
-      <%= f.input :date_to, as: :date, html5: true %>
-      <%= f.button :submit, class:"text-decoration-none btn-flat" %>
-    <% end %>
+  <div class="container booking-calendar">
+    <h1>Create your booking with the adorable <%= @cat.name %></h1>
+      <%= simple_form_for [@cat, @booking] do |f| %>
+        <%= f.input :date_from, as: :date, html5: true %>
+        <%= f.input :date_to, as: :date, html5: true %>
+        <%= f.button :submit, class: "orange-button" %>
+      <% end %>
+  </div>
 </div>

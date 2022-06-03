@@ -1,3 +1,21 @@
-.container-carousel {
-  width: 500px;
+// .container-carousel {
+//   width: 80%;
+// }
+
+// .carousel img {
+//   max-height: 100%;
+//   max-width: 50%;
+// }
+
+// .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+//   width: 100%;
+// }
+
+.image-height {
+  height: 75vh;
+  width: 100vh;
+  object-fit: contain;
+  margin: 0;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }

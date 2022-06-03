@@ -3,13 +3,12 @@
     <% @cats.each do |cat| %>
       <%= link_to cat_path(cat), :class => "text-decoration-none" do %>
           <div class="card-cat-index">
-            <%= image_tag("card_cat.jpg") %>
+            <%= cl_image_tag cat.photos[0].key %>
             <div class="card-cat-infos-index">
               <div>
                 <h2><%= cat.name %></h2>
                 <p><%= cat.description %></p>
               </div>
-                <%# <%= image_tag("king.jpeg") class="card-cat-user avatar-bordered" %>
             </div>
           </div>
       <% end %>

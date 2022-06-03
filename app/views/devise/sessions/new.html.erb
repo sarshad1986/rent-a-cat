@@ -1,26 +1,32 @@
-<div class="container">
-  <div class="mt-3">
-    <h2>Log in</h2>
-
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-      data: {turbo: false}) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<%# <p style="background-image: url('<%= asset_path("Cat_background.png")')> %>
+<%# <div class="paw-background"> %>
+  <div class="container paw-background">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 mx-auto">
+        <div class="mt-3">
+          <h2 login>Log in</h2>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+            data: {turbo: false}) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: false,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { autocomplete: "current-password" } %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Log in", class: "btn btn-info" %>
+            </div>
+            <br>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "btn btn-flat" %>
-      </div>
-      <br>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+    </div>
+    <div class="space"></div>
   </div>
+  <br>
 </div>
