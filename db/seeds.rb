@@ -10,9 +10,10 @@ require "open-uri"
 require "json"
 require 'cat_api'
 
-# puts 'Cleaning Database...'
-# Booking.destroy_all
-# Cat.destroy_all
+puts 'Cleaning Database...'
+Booking.destroy_all
+Cat.destroy_all
+User.destroy_all
 
 puts 'Creating user and cats...'
 5.times do
