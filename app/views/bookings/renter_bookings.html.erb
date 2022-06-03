@@ -1,16 +1,17 @@
-<div class="container">
+<div class="container my-bookings">
   <h1 class="booking-h1">Here are your fluff ball bookings</h1>
 <br> <br>
   <% @bookings.each do |booking| %>
-    <div class="card-product mb-4">
-      <%# <%= link_to cat_path(@cat) %>
-      <% @cat = Cat.find(booking.cat_id) %>
-      <%= image_tag("card_cat.jpg") %>
+    <div class="card-product cat-bg mb-4">
+      <div class="cat-booking-image">
+        <% @cat = Cat.find(booking.cat_id) %>
+        <%= cl_image_tag @cat.photos.first.key %>
+      </div>
+      <div class="details text-center">
       <% if current_user.id == booking.cat.user.id %>
         <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
         <p><%="Cat name: #{@cat.name} "%></p>
         <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
-        <%# <button class="btn btn-primary">Approve</button> %>
         <p><%= "Rental Status: #{booking.rent_status}"%></p>
       <% if booking.rent_status == "accepted" %>
         <p><strong>You approved this booking</strong></p>
@@ -30,6 +31,7 @@
         <p><%="Cat renter: #{booking.user.first_name} #{booking.user.last_name} "%></p>
         <p><%= "Rental Status: #{booking.rent_status}"%></p>
       <% end %>
+      </div>
     </div>
   <% end %>
 </div>
