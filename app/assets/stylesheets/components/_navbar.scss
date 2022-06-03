@@ -34,6 +34,14 @@
 .navbar-btn-container {
   display: flex;
   & > * {
-    margin-left: 8px;
+    margin-left: 12px;
   }
+}
+
+.nav-link {
+  color: #F16821 !important;
+}
+
+.nav-link:hover {
+  opacity: 0.15;
 }
