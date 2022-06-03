@@ -12,3 +12,66 @@
 // body {
   // background-image: url('Cat_background.png');
 // }
+.booking-calendar{
+  position:relative
+}
+
+.booking-calendar::after {
+  content: "";
+  background-image: url("Cat_background.png");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.cat-data-card {
+  position:relative
+}
+
+.cat-data-card::after {
+  content: "";
+  background-image: url("Cat_background.png");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.my-bookings {
+  position:relative
+}
+
+.my-bookings::after {
+  content: "";
+  background-image: url("Cat_background.png");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.user-edit {
+  position:relative
+}
+
+.user-edit::after {
+  content: "";
+  background-image: url("Cat_background.png");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}

@@ -21,6 +21,10 @@
   display: flex;
 }
 
+
+.cat-product.bg {
+  background-color: white;
+}
 .desc-container {
   display: flex;
   justify-content: space-between;
@@ -30,3 +34,4 @@
 .desc-container h2 {
   justify-content: center;
  }
+
