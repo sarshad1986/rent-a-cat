@@ -2,12 +2,12 @@
   <h1 class="booking-h1">Here are your fluff ball bookings</h1>
 <br> <br>
   <% @bookings.each do |booking| %>
-    <div class="card-product cat-bg mb-4">
+    <div class="card-product-cat mb-4">
       <div class="cat-booking-image">
         <% @cat = Cat.find(booking.cat_id) %>
         <%= cl_image_tag @cat.photos.first.key %>
       </div>
-      <div class="details text-center">
+      <div class="details pt-5 bg.light w-100">
       <% if current_user.id == booking.cat.user.id %>
         <p><%="Rental period: #{booking.date_from} - #{booking.date_to}"%></p>
         <p><%="Cat name: #{@cat.name} "%></p>

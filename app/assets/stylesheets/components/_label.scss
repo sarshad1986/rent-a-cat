@@ -21,10 +21,6 @@
   display: flex;
 }
 
-
-.cat-product.bg {
-  background-color: white;
-}
 .desc-container {
   display: flex;
   justify-content: space-between;
@@ -35,3 +31,16 @@
   justify-content: center;
  }
 
+ .card-product-cat {
+  box-shadow: 0 0 20px grey;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 16px;
+  display: flex;
+}
+
+.card-product-cat img {
+  height: 300px;
+  object-fit:contain;
+  background-color: white;
+}
