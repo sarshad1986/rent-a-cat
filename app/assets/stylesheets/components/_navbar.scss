@@ -45,3 +45,10 @@
 .logo:hover {
   color: #d35a1d;
 }
+
+.navbar-btn-container {
+  display: flex;
+  & > * {
+    margin-left: 8px;
+  }
+}
